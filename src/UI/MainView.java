@@ -16,6 +16,8 @@ import CANParser.LogHistory;
 import CANParser.LogHistory.Event;
 import CANParser.Progress;
 
+import Cacher.ReadAndSave;
+
 public class MainView {
     private CanDb mCcan = null;
     private CanDb mBcan = null;
@@ -51,6 +53,8 @@ public class MainView {
         LogHistory lh = promptUserEnterLog();
         System.out.println("");
         printSignal(lh, "EMS11:N");
+        System.out.println("Saving...");
+        ReadAndSave.saveHistory(lh);
     }
 
     private void printSignal(LogHistory lh, String name) {
